@@ -196,13 +196,6 @@ Ladakh_recovered = document.getElementsByClassName("Ladakh_recovered");
 Ladakh_deaths = document.getElementsByClassName("Ladakh_deaths");
 Ladakh_active = document.getElementsByClassName("Ladakh_active");
 
-// function State(state, confirmed, recovered, deaths) {
-//     this.state_name = state;
-//     this.confirmed = confirmed;
-//     this.recovered = recovered;
-//     this.deaths = deaths;
-//     this.active = active;
-// }
 
 var States = [];
 var Confirmed = [];
@@ -402,7 +395,7 @@ function scrape_timeseries() {
                 var Goa = States.indexOf("Goa");
                 Goa_confirmed[i].innerHTML = Confirmed[Goa];
                 Goa_recovered[i].innerHTML = Recovered[Goa];
-                Goa_deaths[i].innerHTML = Deaths[Bihar];
+                Goa_deaths[i].innerHTML = Deaths[Goa];
                 Goa_active[i].innerHTML = Active[Goa];
 
                 var HimachalPradesh = States.indexOf("Himachal Pradesh");
@@ -536,21 +529,3 @@ function scrape_timeseries() {
         })
 }
 scrape_timeseries();
-
-function face() {
-    console.log("clicked");
-    $.ajax(
-        {
-            type: "GET",
-            url: "./facetouchmonitor/index.html",
-            data: {
-            },
-            success: function (respData) {
-                document.getElementsByTagName("html")[0].innerHTML = respData;
-            },
-            error: function (jqXHR, status, err) {
-                alert("Local error callback.");
-                return "error";
-            }
-        });
-}
